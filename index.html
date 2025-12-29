@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>script/executores</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Menu Fixo -->
+    <div class="menu">
+        <div class="menu-logo">script/executores</div>
+        <div class="menu-nav">
+            <button class="menu-btn" onclick="showPage('home')">Home</button>
+            <button class="menu-btn" onclick="showPage('readme')">README</button>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- HOME -->
+        <div id="home" class="page active">
+            <div class="hero">
+                <h1>script/executores</h1>
+                <p>Organize executores e scripts de forma clara e simples</p>
+            </div>
+
+            <div class="main-buttons">
+                <button class="btn" onclick="showPage('executores')">Executores</button>
+                <button class="btn" onclick="showPage('scripts')">Scripts</button>
+            </div>
+        </div>
+
+        <!-- EXECUTORES -->
+        <div id="executores" class="page">
+            <div class="executor-card">
+                <h2>Delta Executor</h2>
+                <p>
+                    O executor Delta está disponível através de link externo.
+                    Este site não hospeda arquivos.
+                </p>
+
+                <p style="color:#ff8800;">⚠️ Use por sua conta e risco</p>
+
+                <button class="btn"
+                    onclick="window.open('https://fgd8.short.gy/DELTA','_blank')">
+                    Baixar Delta
+                </button>
+
+                <button class="back-btn" onclick="showPage('home')">Voltar</button>
+            </div>
+        </div>
+
+        <!-- SCRIPTS -->
+        <div id="scripts" class="page">
+            <h2 style="color:#00ff88;margin-bottom:20px;">
+                Categorias de Scripts
+            </h2>
+
+            <div class="category-list">
+                <button class="category-btn"
+                    onclick="showPage('bloxfruits')">
+                    Blox Fruits
+                </button>
+            </div>
+
+            <button class="back-btn" onclick="showPage('home')">Voltar</button>
+        </div>
+
+        <!-- BLOX FRUITS -->
+        <div id="bloxfruits" class="page">
+            <h2 style="color:#00ff88;margin-bottom:20px;">
+                Scripts - Blox Fruits
+            </h2>
+
+            <div class="script-list">
+                <button class="script-btn"
+                    onclick="showScriptWarning('fpsboost')">
+                    FPS BOOST
+                </button>
+
+                <button class="script-btn"
+                    onclick="showScriptWarning('esticatela')">
+                    Estica Tela (Mais FPS)
+                </button>
+            </div>
+
+            <button class="back-btn" onclick="showPage('scripts')">Voltar</button>
+        </div>
+
+        <!-- FPS BOOST -->
+        <div id="fpsboost" class="page">
+            <div class="script-display">
+                <h3>FPS BOOST</h3>
+
+                <div class="script-code" id="fpsboost-code">-- Made by RIP#6666
+_G.Settings = {
+    Players = {
+        ["Ignore Me"] = true,
+        ["Ignore Others"] = true
+    },
+    Meshes = {
+        Destroy = false,
+        LowDetail = true
+    },
+    Images = {
+        Invisible = true,
+        LowDetail = false,
+        Destroy = false
+    },
+    ["No Particles"] = true,
+    ["No Camera Effects"] = true,
+    ["No Explosions"] = true,
+    ["No Clothes"] = true,
+    ["Low Water Graphics"] = true,
+    ["No Shadows"] = true,
+    ["Low Rendering"] = true,
+    ["Low Quality Parts"] = true
+}
+loadstring(game:HttpGet("https://raw.githubusercontent.com/CasperFlyModz/discord.gg-rips/main/FPSBooster.lua"))()</div>
+
+                <button class="copy-btn"
+                    onclick="copyScript('fpsboost-code','fpsboost-feedback')">
+                    COPIAR SCRIPT
+                </button>
+
+                <div id="fpsboost-feedback" class="copy-feedback">
+                    ✓ Script copiado com sucesso!
+                </div>
+            </div>
+
+            <button class="back-btn" onclick="showPage('bloxfruits')">Voltar</button>
+        </div>
+
+        <!-- ESTICA TELA -->
+        <div id="esticatela" class="page">
+            <div class="script-display">
+                <h3>Estica Tela (Mais FPS)</h3>
+
+                <div class="script-code" id="esticatela-code">getgenv().Resolution = { [".gg/scripters"] = 0.65 }
+local Camera = workspace.CurrentCamera
+if getgenv().gg_scripters == nil then
+    game:GetService("RunService").RenderStepped:Connect(
+        function()
+            Camera.CFrame = Camera.CFrame * CFrame.new(
+                0, 0, 0, 1, 0, 0,
+                0, getgenv().Resolution [".gg/scripters"], 0,
+                0, 0, 1
+            )
+        end
+    )
+end
+getgenv().gg_scripters = "Aori0001"</div>
+
+                <button class="copy-btn"
+                    onclick="copyScript('esticatela-code','esticatela-feedback')">
+                    COPIAR SCRIPT
+                </button>
+
+                <div id="esticatela-feedback" class="copy-feedback">
+                    ✓ Script copiado com sucesso!
+                </div>
+            </div>
+
+            <button class="back-btn" onclick="showPage('bloxfruits')">Voltar</button>
+        </div>
+
+        <!-- README -->
+        <div id="readme" class="page">
+            <div class="readme-content">
+                <h2>README - script/executores</h2>
+
+                <p>
+                    Este site é apenas informativo.
+                    Nenhum arquivo é hospedado aqui.
+                    O uso é de total responsabilidade do usuário.
+                </p>
+            </div>
+
+            <button class="back-btn" onclick="showPage('home')">Voltar</button>
+        </div>
+
+    </div>
+
+    <!-- AVISO LEGAL -->
+    <div id="warning-overlay" class="warning-overlay">
+        <div class="warning-box">
+            <h2>⚠️ AVISO LEGAL</h2>
+
+            <p>
+                O uso de scripts pode resultar em punições.
+                O criador do site não se responsabiliza.
+            </p>
+
+            <div class="warning-buttons">
+                <button class="warning-btn decline-btn"
+                    onclick="declineWarning()">RECUSAR</button>
+
+                <button class="warning-btn accept-btn"
+                    onclick="acceptWarning()">ACEITAR</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+  </html>
