@@ -5,54 +5,72 @@
   <title>script/executores</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header class="menu">
-  <div class="logo">script/executores</div>
+<header class="topbar">
+  <div class="logo">script/<span>executores</span></div>
   <nav>
-    <button data-nav="home">Home</button>
-    <button data-nav="executores">Executores</button>
-    <button data-nav="scripts">Scripts</button>
-    <button data-nav="readme">README</button>
+    <a href="index.html">Home</a>
+    <a href="#executores">Executores</a>
+    <a href="#scripts">Scripts</a>
+    <a href="readme.html">README</a>
   </nav>
 </header>
 
-<main>
-
-<section id="home" class="page active">
+<section class="hero">
   <h1>script/executores</h1>
   <p>Organize executores e scripts de forma clara, moderna e bonita.</p>
 
-  <div class="home-buttons">
-    <button class="neon" data-nav="executores">Executores</button>
-    <button class="neon" data-nav="scripts">Scripts</button>
+  <div class="hero-buttons">
+    <a href="#executores" class="btn primary">Executores</a>
+    <a href="#scripts" class="btn secondary">Scripts</a>
   </div>
 </section>
 
-<section id="executores" class="page">
+<section id="executores" class="section">
+  <h2>Executores</h2>
+
   <div class="card">
-    <h2>Delta Executor</h2>
+    <h3>Delta Executor</h3>
     <p>Link externo. O site não hospeda arquivos.</p>
-    <a href="https://fgd8.short.gy/DELTA" target="_blank" class="neon">Acessar Delta</a>
-    <span class="risk">⚠ Uso por sua conta e risco</span>
+    <a href="https://fgd8.short.gy/DELTA" target="_blank" class="btn primary">
+      Acessar Delta
+    </a>
+    <small>⚠ Uso por sua conta e risco</small>
   </div>
 </section>
 
-<section id="scripts" class="page">
+<section id="scripts" class="section">
   <h2>Categorias</h2>
-  <button class="glass" data-nav="blox">Blox Fruits</button>
+
+  <div class="card">
+    <h3>Blox Fruits</h3>
+    <a href="#blox" class="btn secondary">Abrir</a>
+  </div>
 </section>
 
-<section id="blox" class="page">
+<section id="blox" class="section">
   <h2>Blox Fruits</h2>
-  <button class="glass" data-script="fps">FPS BOOST</button>
-  <button class="glass" data-script="estica">Estica Tela (Mais FPS)</button>
+
+  <div class="script-list">
+    <a href="#fpsboost" class="btn script">FPS BOOST</a>
+    <a href="#esticatela" class="btn script">Estica Tela (Mais FPS)</a>
+  </div>
 </section>
 
-<section id="script-fps" class="page">
+<section id="fpsboost" class="section script-page">
   <h2>FPS BOOST</h2>
-  <pre id="fps-code">-- Made by RIP#6666
+
+  <div class="legal">
+    <p>⚠ O uso de scripts pode resultar em punições. O uso é por sua conta e risco. O criador do site não se responsabiliza.</p>
+    <button onclick="accept(this)">ACEITAR</button>
+    <button onclick="reject()">RECUSAR</button>
+  </div>
+
+  <pre class="code hidden" id="fpsCode">
+-- Made by RIP#6666
 _G.Settings = {
 Players = {
 ["Ignore Me"] = true,
@@ -76,13 +94,23 @@ Destroy = false
 ["Low Rendering"] = true,
 ["Low Quality Parts"] = true
 }
-loadstring(game:HttpGet("https://raw.githubusercontent.com/CasperFlyModz/discord.gg-rips/main/FPSBooster.lua"))()</pre>
-  <button class="neon" onclick="copyScript('fps-code')">Copiar Script</button>
+loadstring(game:HttpGet("https://raw.githubusercontent.com/CasperFlyModz/discord.gg-rips/main/FPSBooster.lua"))()
+  </pre>
+
+  <button class="btn copy hidden" onclick="copyCode('fpsCode')">COPIAR SCRIPT</button>
 </section>
 
-<section id="script-estica" class="page">
+<section id="esticatela" class="section script-page">
   <h2>Estica Tela (Mais FPS)</h2>
-  <pre id="estica-code">getgenv().Resolution = { [".gg/scripters"] = 0.65 }
+
+  <div class="legal">
+    <p>⚠ O uso de scripts pode resultar em punições. O uso é por sua conta e risco. O criador do site não se responsabiliza.</p>
+    <button onclick="accept(this)">ACEITAR</button>
+    <button onclick="reject()">RECUSAR</button>
+  </div>
+
+  <pre class="code hidden" id="stretchCode">
+getgenv().Resolution = { [".gg/scripters"] = 0.65 }
 local Camera = workspace.CurrentCamera
 if getgenv().gg_scripters == nil then
 game:GetService("RunService").RenderStepped:Connect(
@@ -91,29 +119,11 @@ Camera.CFrame = Camera.CFrame * CFrame.new(0, 0, 0, 1, 0, 0, 0, getgenv().Resolu
 end
 )
 end
-getgenv().gg_scripters = "Aori0001"</pre>
-  <button class="neon" onclick="copyScript('estica-code')">Copiar Script</button>
+getgenv().gg_scripters = "Aori0001"
+  </pre>
+
+  <button class="btn copy hidden" onclick="copyCode('stretchCode')">COPIAR SCRIPT</button>
 </section>
-
-<section id="readme" class="page">
-  <div class="card">
-    <h2>README</h2>
-    <p>Site informativo. Não hospedamos arquivos.</p>
-    <p>Todos os links são externos.</p>
-    <p>O uso é de total responsabilidade do usuário.</p>
-  </div>
-</section>
-
-</main>
-
-<div id="legal" class="modal">
-  <div class="modal-box">
-    <h3>⚠ Aviso Legal</h3>
-    <p>O uso de scripts pode resultar em punições. Você assume todos os riscos.</p>
-    <button id="accept" class="neon">Aceitar</button>
-    <button id="deny" class="danger">Recusar</button>
-  </div>
-</div>
 
 <script src="js/script.js"></script>
 </body>
